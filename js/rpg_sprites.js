@@ -1908,6 +1908,9 @@ function Sprite_Picture() {
 Sprite_Picture.prototype = Object.create(Sprite.prototype);
 Sprite_Picture.prototype.constructor = Sprite_Picture;
 
+Sprite_Picture.prototype._renderCanvas_PIXI = PIXI.picture.Sprite.prototype._renderCanvas;
+Sprite_Picture.prototype._render_PIXI = PIXI.picture.Sprite.prototype._render;
+
 Sprite_Picture.prototype.initialize = function (pictureId) {
     Sprite.prototype.initialize.call(this);
     this._pictureId = pictureId;

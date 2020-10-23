@@ -7,6 +7,7 @@
 // Window_Base
 //
 // The superclass of all windows within the game.
+
 function Window_Base() {
     this.initialize.apply(this, arguments);
 }
@@ -325,9 +326,6 @@ Window_Base.prototype.processNormalCharacter = function (textState) {
     var c = textState.text[textState.index++];
     var w = this.textWidth(c);
     this.contents.drawText(c, textState.x, textState.y, w * 2, textState.height);
-    //this.graphics.is_dirty = 1;
-    //this.graphics.invalidate();
-    //this.calculateBounds();
     textState.x += w;
 };
 
@@ -1897,7 +1895,6 @@ Window_ItemCategory.prototype.makeCommandList = function () {
 
 Window_ItemCategory.prototype.setItemWindow = function (itemWindow) {
     this._itemWindow = itemWindow;
-    //    this.update();
 };
 
 //-----------------------------------------------------------------------------
@@ -2073,7 +2070,6 @@ Window_SkillType.prototype.update = function () {
 
 Window_SkillType.prototype.setSkillWindow = function (skillWindow) {
     this._skillWindow = skillWindow;
-    //    this.update();
 };
 
 Window_SkillType.prototype.selectLast = function () {
@@ -2434,7 +2430,6 @@ Window_EquipSlot.prototype.setStatusWindow = function (statusWindow) {
 
 Window_EquipSlot.prototype.setItemWindow = function (itemWindow) {
     this._itemWindow = itemWindow;
-    //    this.update();
 };
 
 Window_EquipSlot.prototype.updateHelp = function () {
