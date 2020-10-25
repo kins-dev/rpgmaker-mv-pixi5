@@ -32,3 +32,9 @@ This is a set of updates based on RPGMaker MV 1.6.2 to use [PixiJS 5.3.3](https:
 - Submit issue against Pixi-Tilemap for the rendering issue
 - Submit issue against NW.js for performance issues starting with v0.46
 - Bring in proper filter fix for Pixi-Picture when it is released
+
+## License
+
+- PixiJS is covered by the [MIT License](https://github.com/pixijs/pixi.js/blob/dev/LICENSE)
+- Typescript and other libraries, see the file headers
+- My Modifications: MIT License
