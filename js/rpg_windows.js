@@ -5899,7 +5899,6 @@ Window_DebugRange.prototype.processCancel = function () {
 
 Window_DebugRange.prototype.setEditWindow = function (editWindow) {
     this._editWindow = editWindow;
-    //    this.update();
 };
 
 //-----------------------------------------------------------------------------
