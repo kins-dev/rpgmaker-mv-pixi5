@@ -9738,7 +9738,7 @@ declare class Game_Battler extends Game_BattlerBase {
     setLastTarget(target: Game_Battler): void;
     forceAction(skillId: number, targetIndex: number): void;
     /**
-     * Has theb attler use the given item.
+     * Has the battler use the given item.
      * 
      * @param {RPG.UsableItem} item 
      * @memberof Game_Battler
@@ -9793,14 +9793,14 @@ declare class Game_Battler extends Game_BattlerBase {
     clearTp(): void;
     chargeTpByDamage(damageRate: number): void;
     /**
-     * Has the battler regenerate hp based on their hp regen.
+     * Has the battler regenerate hp based on their hp regeneration.
      * 
      * @memberof Game_Battler
      */
     regenerateHp(): void;
     maxSlipDamage(): number;
     /**
-     * Has the battler regenerate mp based on their mp regen.
+     * Has the battler regenerate mp based on their mp regeneration.
      * 
      * @memberof Game_Battler
      */
@@ -11015,7 +11015,7 @@ declare class Game_Party extends Game_Unit {
      */
     armors(): Array<RPG.Armor>;
     /**
-     * Returns the party's equippable items.
+     * Returns the party's items that can be equipped.
      * 
      * @returns {Array<RPG.EquipItem>} 
      * @memberof Game_Party
@@ -12085,7 +12085,7 @@ declare class Game_CharacterBase {
     scrolledX(): number;
     scrolledY(): number;
     /**
-     * Returns the character's scrreen x position.
+     * Returns the character's screen x position.
      * 
      * @returns {number} 
      * @memberof Game_CharacterBase
@@ -13269,7 +13269,7 @@ declare class Game_Event extends Game_Character {
      */
     lock(): void;
     /**
-     * Unlocks the game eveent.
+     * Unlocks the game event.
      * 
      * @memberof Game_Event
      */
@@ -13412,7 +13412,7 @@ declare class Game_Interpreter {
      */
     setup(list: Array<RPG.EventCommand>, eventId: number): void;
     /**
-     * Returns the currrent eventId.
+     * Returns the current eventId.
      * 
      * @returns {number} 
      * @memberof Game_Interpreter
@@ -13514,7 +13514,7 @@ declare class Game_Interpreter {
     iterateActorId(param: number, callback: (actor: Game_Actor) => void): void;
     iterateActorEx(param1: number, param2: number, callback: (actor: Game_Actor) => void): void;
     iterateActorIndex(param: number, callback: (actor: Game_Actor) => void): void;
-    iterateEnemyIndex(param: number, callback: (enemt: Game_Enemy) => void): void;
+    iterateEnemyIndex(param: number, callback: (enemy: Game_Enemy) => void): void;
     iterateBattler(param1: number, param2: number, callback: (battler: Game_Battler) => void): void;
     character(param: number): Game_Character;
     operateValue(operation: number, operandType: number, operand: number): number;
@@ -14836,7 +14836,7 @@ declare class Scene_Item extends Scene_ItemBase {
      */
     createItemWindow(): void;
     /**
-     * Handler for when a cataegory is selected
+     * Handler for when a category is selected
      * on the item scene.
      * @memberof Scene_Item
      */
@@ -14900,7 +14900,7 @@ declare class Scene_Skill extends Scene_ItemBase {
     onItemCancel(): void;
     /**
      * Plays a sound effect on item
-     * confirmation withiin the skill scene.
+     * confirmation within the skill scene.
      * @memberof Scene_Skill
      */
     playSeForItem(): void;
@@ -15687,7 +15687,7 @@ declare class Sprite_Base extends Sprite {
      */
     show(): void;
     /**
-     * Updadtes the visibility of the sprite based
+     * Updates the visibility of the sprite based
      * on the _hiding property.
      * @memberof Sprite_Base
      */
@@ -15954,7 +15954,7 @@ declare class Sprite_Character extends Sprite_Base {
     startBalloon(): void;
     /**
      * Processes the balloon sprite, calls
-     * the endBaloon method if the balloon sprite is done playing.
+     * the endBalloon method if the balloon sprite is done playing.
      * @memberof Sprite_Character
      */
     updateBalloon(): void;
@@ -16293,7 +16293,7 @@ declare class Sprite_Enemy extends Sprite_Battler {
     setupEffect(): void;
     startEffect(effectType: string): void;
     /**
-     * Starts the appearinig effect on the sprite enemy.
+     * Starts the appearing effect on the sprite enemy.
      * 
      * @memberof Sprite_Enemy
      */
@@ -16441,7 +16441,7 @@ declare class Sprite_Animation extends Sprite {
      */
     absoluteX(): number;
     /**
-     * Returns the absolute y position of the sprite aniamtion.
+     * Returns the absolute y position of the sprite animation.
      * 
      * @returns {number} 
      * @memberof Sprite_Animation
@@ -16504,13 +16504,13 @@ declare class Sprite_Animation extends Sprite {
      */
     updatePosition(): void;
     /**
-     * Updates the frame of the sprite aniamtion.
+     * Updates the frame of the sprite animation.
      * 
      * @memberof Sprite_Animation
      */
     updateFrame(): void;
     /**
-     * Returns the current frame index of the sprite aniamtion.
+     * Returns the current frame index of the sprite animation.
      * 
      * @returns {number} 
      * @memberof Sprite_Animation
@@ -16836,7 +16836,7 @@ declare class Sprite_Timer extends Sprite {
      */
     timerText(): string;
     /**
-     * Updates the positon of the sprite timer.
+     * Updates the position of the sprite timer.
      * 
      * @memberof Sprite_Timer
      */
@@ -16932,7 +16932,7 @@ declare class Spriteset_Base extends Sprite {
      */
     createCanvasToneChanger(): void;
     /**
-     * Creates a new sprite picture on the spritesetb ase.
+     * Creates a new sprite picture on the spriteset_base.
      * 
      * @memberof Spriteset_Base
      */
@@ -17117,7 +17117,7 @@ declare class Spriteset_Battle extends Spriteset_Base {
      */
     locateBattleback(): void;
     /**
-     * Returns battleb ack 2 of the battle spriteset.
+     * Returns battleback 2 of the battle spriteset.
      * 
      * @returns {Bitmap} Instance of the Bitmap class.
      * @memberof Spriteset_Battle
@@ -17526,7 +17526,7 @@ declare class Window_Base extends _Window {
      */
     activate(): void;
     /**
-     * Deactives the window, preventing further processing.
+     * Deactivates the window, preventing further processing.
      * 
      * @memberof Window_Base
      */
@@ -17570,7 +17570,7 @@ declare class Window_Base extends _Window {
      */
     deathColor(): string;
     /**
-     * Returns the gauage back color as 
+     * Returns the gauge back color as 
      * a css color string.
      * @returns {string} 
      * @memberof Window_Base
@@ -18361,7 +18361,7 @@ declare class Window_Selectable extends Window_Base {
     isCurrentItemEnabled(): boolean;
     /**
      * Draws all items within the window; this method
-     * cals drawItem multiple times.
+     * calls drawItem multiple times.
      * @memberof Window_Selectable
      */
     drawAllItems(): void;
@@ -18951,7 +18951,7 @@ declare class Window_SkillList extends Window_Selectable {
      */
     setStypeId(stypeId: number): void;
     /**
-     * Returns the current skill from the databse.
+     * Returns the current skill from the database.
      * 
      * @returns {RPG.Skill} 
      * @memberof Window_SkillList
@@ -19389,7 +19389,7 @@ declare class Window_ShopNumber extends Window_Selectable {
     setCurrencyUnit(currencyUnit: string): void;
     createButtons(): void;
     placeButtons(): void;
-    updateButtonsVisiblity(): void;
+    updateButtonsVisibility(): void;
     /**
      * Shows the quantity input buttons.
      * 
@@ -19499,7 +19499,7 @@ declare class Window_ShopStatus extends Window_Base {
      */
     paramId(): number;
     /**
-     * Returns the current item equiped by the given actor when
+     * Returns the current item equipped by the given actor when
      * the respective equipment Id is passed.
      * @param {Game_Actor} actor 
      * @param {number} etypeId 
@@ -19626,7 +19626,7 @@ declare class Window_NameEdit extends Window_Base {
  * Window_NameInput
  *
  * The window for selecting text characters on the name input screen.
- * @class Window_NameInputt
+ * @class Window_NameInput
  */
 declare class Window_NameInput extends Window_Selectable {
     static LATIN1: Array<string>;
@@ -19736,7 +19736,7 @@ declare class Window_NumberInput extends Window_Selectable {
      * @memberof Window_NumberInput
      */
     placeButtons(): void;
-    updateButtonsVisiblity(): void;
+    updateButtonsVisibility(): void;
     showButtons(): void;
     hideButtons(): void;
     buttonY(): number;

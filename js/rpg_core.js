@@ -2,6 +2,8 @@
 // rpg_core.js v1.6.2.1
 //=============================================================================
 
+const { inspect } = require('util');
+
 //-----------------------------------------------------------------------------
 /**
  * This is not a class, but contains some methods that will be added to the
@@ -9223,7 +9225,7 @@ Decrypter.extToEncryptExt = function (url) {
     else if (ext === ".m4a" && Decrypter.hasEncryptedImages) newExt = ".rpgmvm";
     else if (ext === ".png" && Decrypter.hasEncryptedImages) newExt = ".rpgmvp";
 
-    return CS_URL.MapURL(path.basename(url, ext) + newExt);
+    return CS_URL.MapURL(path.join(path.dirname(url), path.basename(url, ext) + newExt));
 };
 
 Decrypter.readEncryptionkey = function () {
@@ -9346,9 +9348,9 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
             CS_URL.urlMap[fileName.toLowerCase() + ext] = fileName + ext;
             // if we find an encrypted file, add the decrypted name to the list
             // of things to look for
-            if (ext === ".rpgmvo" && Decrypter.hasEncryptedAudio) ext = ".ogg";
-            else if (ext === ".rpgmvm" && Decrypter.hasEncryptedImages) ext = ".m4a";
-            else if (ext === ".rpgmvp" && Decrypter.hasEncryptedImages) ext = ".png";
+            if (ext === ".rpgmvo") ext = ".ogg";
+            else if (ext === ".rpgmvm") ext = ".m4a";
+            else if (ext === ".rpgmvp") ext = ".png";
             else { continue; }
             CS_URL.urlMap[fileName + ext] = fileName + ext;
             CS_URL.urlMap[fileName.toLowerCase() + ext] = fileName + ext;
@@ -9381,10 +9383,10 @@ CS_URL.MapURL = function (url) {
     var result = CS_URL.urlMap[item];
     if (result) { return result; }
     // You can enable logging here to find files that have the wrong case
-    //console.log("File \"" + item + "\" not found, trying lowercase");
+    console.log("File \"" + item + "\" not found, trying lowercase");
     result = CS_URL.urlMap[item.toLowerCase()];
     if (result) { return result; }
-    //console.log("\"" + item + "\" still not found giving up");
+    console.log("\"" + item + "\" still not found giving up");
     return url;
 };
 
