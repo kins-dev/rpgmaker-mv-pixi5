@@ -9331,7 +9331,7 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
     const path = require('path');
     const items = fs.readdirSync(baseSystemPath, { withFileTypes: true });
     for (const entry of items) {
-        var isDir = entry.isDirectory();
+        let isDir = entry.isDirectory();
         if (entry.isSymbolicLink()) {
             const realItem = fs.readlinkSync(path.join(baseSystemPath, entry.name));
             isDir = fs.statSync(realItem).isDirectory();
@@ -9341,8 +9341,8 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
                 path.join(baseSystemPath, entry.name),
                 path.posix.join(baseFilePath, entry.name));
         } else {
-            var fileName = entry.name;
-            var ext = path.extname(fileName);
+            let fileName = entry.name;
+            let ext = path.extname(fileName);
             fileName = path.posix.join(baseFilePath, path.basename(fileName, ext));
             CS_URL.urlMap[fileName + ext] = fileName + ext;
             CS_URL.urlMap[fileName.toLowerCase() + ext] = fileName + ext;
@@ -9369,7 +9369,7 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
  * @return {String}
  */
 CS_URL.MapURL = function (url) {
-    var item = url;
+    let item = url;
     // URLs follow posix rules for paths regardless of platform
     const pathUtils = require('path').posix;
     try {
@@ -9380,13 +9380,13 @@ CS_URL.MapURL = function (url) {
         item = pathUtils.join(CS_URL.absolutePrefix, item);
     }
 
-    var result = CS_URL.urlMap[item];
+    let result = CS_URL.urlMap[item];
     if (result) { return result; }
     // You can enable logging here to find files that have the wrong case
-    console.log("File \"" + item + "\" not found, trying lowercase");
+    //console.log("File \"" + item + "\" not found, trying lowercase");
     result = CS_URL.urlMap[item.toLowerCase()];
     if (result) { return result; }
-    console.log("\"" + item + "\" still not found giving up");
+    //console.log("\"" + item + "\" still not found giving up");
     return url;
 };
 
