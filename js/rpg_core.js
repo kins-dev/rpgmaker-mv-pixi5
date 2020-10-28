@@ -4976,18 +4976,18 @@ Tilemap.prototype._writeLastTiles = function (i, x, y, tiles) {
 
 /**
  * @method _drawTile
- * @param {Bitmap} bitmap
+ * @param {Object} layer (bitmap or proper layer object)
  * @param {Number} tileId
  * @param {Number} dx
  * @param {Number} dy
  * @private
  */
-Tilemap.prototype._drawTile = function (bitmap, tileId, dx, dy) {
+Tilemap.prototype._drawTile = function (layer, tileId, dx, dy) {
     if (Tilemap.isVisibleTile(tileId)) {
         if (Tilemap.isAutotile(tileId)) {
-            this._drawAutotile(bitmap, tileId, dx, dy);
+            this._drawAutotile(layer, tileId, dx, dy);
         } else {
-            this._drawNormalTile(bitmap, tileId, dx, dy);
+            this._drawNormalTile(layer, tileId, dx, dy);
         }
     }
 };
@@ -5250,13 +5250,13 @@ Tilemap.prototype._sortChildren = function () {
  * @private
  */
 Tilemap.prototype._compareChildOrder = function (a, b) {
-    if (a.z !== b.z) {
-        return a.z - b.z;
-    } else if (a.y !== b.y) {
+    if (a.z === b.z) {
+        if (a.y === b.y) {
+            return a.spriteId - b.spriteId;
+        }
         return a.y - b.y;
-    } else {
-        return a.spriteId - b.spriteId;
     }
+    return a.z - b.z;
 };
 
 // Tile type checkers
@@ -5483,19 +5483,15 @@ function ShaderTilemap() {
 ShaderTilemap.prototype = Object.create(Tilemap.prototype);
 ShaderTilemap.prototype.constructor = ShaderTilemap;
 
-// FIXME: Comment out of tilemap
-// Issue:
-// Sometimes the upper layer will appear partly transparent so disabling
-// this for now, and falling back on the tileset render
+// FIXME: Issue
+// Sometimes the upper layer will appear partly transparent so moving
+// it to zIndex 6 fixed it, but I'm not sure why.
 // Only happens on tileId3 with a tint to make things darker,
-// and then only in specific cases.  Regardless this is a minor
-// performance boost over the Tilemap (at least for me) so just going
-// to ignore it.
+// and then only in specific cases.
 //
 // Note: May cause issues with plugins if they are overriding some of the
 // ShaderTilemap APIs
 
-if (false) {
 // we need this constant for some platforms (Samsung S4, S5, Tab4, HTC One H8)
 /* Disabled for PixiJS5 on Desktop: needs mobile testings
 PIXI.glCore.VertexArrayObject.FORCE_NATIVE = true;
@@ -5598,26 +5594,30 @@ ShaderTilemap.prototype.updateTransform = function () {
  * @private
  */
 ShaderTilemap.prototype._createLayers = function () {
-    var width = this._width;
-    var height = this._height;
-    var margin = this._margin;
-    var tileCols = Math.ceil(width / this._tileWidth) + 1;
-    var tileRows = Math.ceil(height / this._tileHeight) + 1;
-    var layerWidth = this._layerWidth = tileCols * this._tileWidth;
-    var layerHeight = this._layerHeight = tileRows * this._tileHeight;
+    let width = this._width;
+    let height = this._height;
+    let margin = this._margin;
+    let tileCols = Math.ceil(width / this._tileWidth) + 1;
+    let tileRows = Math.ceil(height / this._tileHeight) + 1;
+    let layerWidth = this._layerWidth = tileCols * this._tileWidth;
+    let layerHeight = this._layerHeight = tileRows * this._tileHeight;
     this._needsRepaint = true;
 
     if (!this.lowerZLayer) {
         //@hackerham: create layers only in initialization. Doesn't depend on width/height
         this.addChild(this.lowerZLayer = new PIXI.tilemap.ZLayer(this, 0));
-        this.addChild(this.upperZLayer = new PIXI.tilemap.ZLayer(this, 4));
 
-        var parameters = PluginManager.parameters('ShaderTilemap');
-        var useSquareShader = Number(parameters.hasOwnProperty('squareShader') ? parameters.squareShader : 0);
+        let parameters = PluginManager.parameters('ShaderTilemap');
+        let useSquareShader = Number(parameters.hasOwnProperty('squareShader') ? parameters.squareShader : 0);
 
         this.lowerZLayer.addChild(this.lowerLayer = new PIXI.tilemap.CompositeRectTileLayer(0, [], useSquareShader));
         this.lowerLayer.shadowColor = new Float32Array([0.0, 0.0, 0.0, 0.5]);
-        this.upperZLayer.addChild(this.upperLayer = new PIXI.tilemap.CompositeRectTileLayer(4, [], useSquareShader));
+
+        // FIXME: This was 4 before, but some of the upper tiles were getting overwritten
+        // by lower tiles, setting to 6 fixed this behavior, but it is unclear why
+        // or what issues changing this might cause
+        this.addChild(this.upperZLayer = new PIXI.tilemap.ZLayer(this, 6));
+        this.upperZLayer.addChild(this.upperLayer = new PIXI.tilemap.CompositeRectTileLayer(0, [], useSquareShader));
 
     }
 };
@@ -5629,14 +5629,11 @@ ShaderTilemap.prototype._createLayers = function () {
  * @private
  */
 ShaderTilemap.prototype._updateLayerPositions = function (startX, startY) {
-    var oy;
-    var ox;
+    let ox = this.origin.x;
+    let oy = this.origin.y;
     if (this.roundPixels) {
         ox = Math.floor(this.origin.x);
         oy = Math.floor(this.origin.y);
-    } else {
-        ox = this.origin.x;
-        oy = this.origin.y;
     }
     this.lowerZLayer.position.x = startX * this._tileWidth - ox;
     this.lowerZLayer.position.y = startY * this._tileHeight - oy;
@@ -5653,10 +5650,10 @@ ShaderTilemap.prototype._updateLayerPositions = function (startX, startY) {
 ShaderTilemap.prototype._paintAllTiles = function (startX, startY) {
     this.lowerZLayer.children[0].clear();
     this.upperZLayer.children[0].clear();
-    var tileCols = Math.ceil(this._width / this._tileWidth) + 1;
-    var tileRows = Math.ceil(this._height / this._tileHeight) + 1;
-    for (var y = 0; y < tileRows; y++) {
-        for (var x = 0; x < tileCols; x++) {
+    let tileCols = Math.ceil(this._width / this._tileWidth) + 1;
+    let tileRows = Math.ceil(this._height / this._tileHeight) + 1;
+    for (let y = 0; y < tileRows; y++) {
+        for (let x = 0; x < tileCols; x++) {
             this._paintTiles(startX, startY, x, y);
         }
     }
@@ -5747,7 +5744,7 @@ ShaderTilemap.prototype._paintTiles = function (startX, startY, x, y) {
  * @private
  */
 ShaderTilemap.prototype._drawNormalTile = function (layer, tileId, dx, dy) {
-    var setNumber = 0;
+    let setNumber = 0;
 
     if (Tilemap.isTileA5(tileId)) {
         setNumber = 4;
@@ -5755,10 +5752,10 @@ ShaderTilemap.prototype._drawNormalTile = function (layer, tileId, dx, dy) {
         setNumber = 5 + Math.floor(tileId / 256);
     }
 
-    var w = this._tileWidth;
-    var h = this._tileHeight;
-    var sx = (Math.floor(tileId / 128) % 2 * 8 + tileId % 8) * w;
-    var sy = (Math.floor(tileId % 256 / 8) % 16) * h;
+    let w = this._tileWidth;
+    let h = this._tileHeight;
+    let sx = (Math.floor(tileId / 128) % 2 * 8 + tileId % 8) * w;
+    let sy = (Math.floor(tileId % 256 / 8) % 16) * h;
 
     layer.addRect(setNumber, sx, sy, dx, dy, w, h);
 };
@@ -5903,12 +5900,11 @@ ShaderTilemap.prototype._drawShadow = function (layer, shadowBits, dx, dy) {
             if (shadowBits & (1 << i)) {
                 var dx1 = dx + (i % 2) * w1;
                 var dy1 = dy + Math.floor(i / 2) * h1;
-                layer.addRect(-1, 0, 0, dx1, dy1, w1, h1);
+                layer.addRect(0, 0, 0, dx1, dy1, w1, h1);
             }
         }
     }
 };
-}
 //-----------------------------------------------------------------------------
 /**
  * The sprite object for a tiling image.
