@@ -8121,7 +8121,7 @@ WebAudio.prototype._load = function (url) {
         var xhr = new XMLHttpRequest();
         if (Decrypter.hasEncryptedAudio) url = Decrypter.extToEncryptExt(url);
         else url = CS_URL.MapURL(url);
-        xhr.open('GET', url);
+        xhr.open('GET', CS_URL.MapURL(url));
         xhr.responseType = 'arraybuffer';
         xhr.onload = function () {
             if (xhr.status < 400) {
@@ -9332,20 +9332,21 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
                 path.join(baseSystemPath, entry.name),
                 path.posix.join(baseFilePath, entry.name));
         } else {
-            let fileName = entry.name;
+            const fileName = entry.name;
             let ext = path.extname(fileName);
-            fileName = path.posix.join(baseFilePath, path.basename(fileName, ext));
-            CS_URL.urlMap[fileName + ext] = fileName + ext;
-            CS_URL.urlMap[fileName.toLowerCase() + ext] = fileName + ext;
+            const filePath = path.posix.join(baseFilePath, path.basename(fileName, ext));
+            CS_URL.urlMap[filePath + ext] = filePath + ext;
+            CS_URL.urlMap[filePath.toLowerCase() + ext] = filePath + ext;
+            CS_URL.urlMap[path.join(baseSystemPath, path.basename(fileName, ext) + ext)] = filePath + ext;
             // if we find an encrypted file, add the decrypted name to the list
             // of things to look for
             if (ext === ".rpgmvo") ext = ".ogg";
             else if (ext === ".rpgmvm") ext = ".m4a";
             else if (ext === ".rpgmvp") ext = ".png";
             else { continue; }
-            CS_URL.urlMap[fileName + ext] = fileName + ext;
-            CS_URL.urlMap[fileName.toLowerCase() + ext] = fileName + ext;
-
+            CS_URL.urlMap[filePath + ext] = filePath + ext;
+            CS_URL.urlMap[filePath.toLowerCase() + ext] = filePath + ext;
+            CS_URL.urlMap[path.join(baseSystemPath, path.basename(fileName, ext) + ext)] = filePath + ext;
         }
     }
     if (baseFilePath === "") {

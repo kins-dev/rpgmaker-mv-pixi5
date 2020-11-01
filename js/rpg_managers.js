@@ -79,7 +79,7 @@ DataManager.loadDatabase = function () {
 DataManager.loadDataFile = function (name, src) {
     var xhr = new XMLHttpRequest();
     var url = CS_URL.MapURL('data/' + src);
-    xhr.open('GET', url);
+    xhr.open('GET', CS_URL.MapURL(url));
     xhr.overrideMimeType('application/json');
     xhr.onload = function () {
         if (xhr.status < 400) {
