@@ -5566,17 +5566,14 @@ ShaderTilemap.prototype.refreshTileset = function () {
  * @private
  */
 ShaderTilemap.prototype.updateTransform = function () {
-    var ox;
-    var oy;
+    let ox = this.origin.x;
+    let oy = this.origin.y;
     if (this.roundPixels) {
         ox = Math.floor(this.origin.x);
         oy = Math.floor(this.origin.y);
-    } else {
-        ox = this.origin.x;
-        oy = this.origin.y;
     }
-    var startX = Math.floor((ox - this._margin) / this._tileWidth);
-    var startY = Math.floor((oy - this._margin) / this._tileHeight);
+    let startX = Math.floor((ox - this._margin) / this._tileWidth);
+    let startY = Math.floor((oy - this._margin) / this._tileHeight);
     this._updateLayerPositions(startX, startY);
     if (this._needsRepaint ||
         this._lastStartX !== startX || this._lastStartY !== startY) {
@@ -5594,21 +5591,21 @@ ShaderTilemap.prototype.updateTransform = function () {
  * @private
  */
 ShaderTilemap.prototype._createLayers = function () {
-    let width = this._width;
-    let height = this._height;
-    let margin = this._margin;
-    let tileCols = Math.ceil(width / this._tileWidth) + 1;
-    let tileRows = Math.ceil(height / this._tileHeight) + 1;
-    let layerWidth = this._layerWidth = tileCols * this._tileWidth;
-    let layerHeight = this._layerHeight = tileRows * this._tileHeight;
+    const width = this._width;
+    const height = this._height;
+    const margin = this._margin;
+    const tileCols = Math.ceil(width / this._tileWidth) + 1;
+    const tileRows = Math.ceil(height / this._tileHeight) + 1;
+    const layerWidth = this._layerWidth = tileCols * this._tileWidth;
+    const layerHeight = this._layerHeight = tileRows * this._tileHeight;
     this._needsRepaint = true;
 
     if (!this.lowerZLayer) {
         //@hackerham: create layers only in initialization. Doesn't depend on width/height
         this.addChild(this.lowerZLayer = new PIXI.tilemap.ZLayer(this, 0));
 
-        let parameters = PluginManager.parameters('ShaderTilemap');
-        let useSquareShader = Number(parameters.hasOwnProperty('squareShader') ? parameters.squareShader : 0);
+        const parameters = PluginManager.parameters('ShaderTilemap');
+        const useSquareShader = Number(parameters.hasOwnProperty('squareShader') ? parameters['squareShader'] : 0);
 
         this.lowerZLayer.addChild(this.lowerLayer = new PIXI.tilemap.CompositeRectTileLayer(0, [], useSquareShader));
         this.lowerLayer.shadowColor = new Float32Array([0.0, 0.0, 0.0, 0.5]);
@@ -5894,13 +5891,13 @@ ShaderTilemap.prototype._drawTableEdge = function (layer, tileId, dx, dy) {
  */
 ShaderTilemap.prototype._drawShadow = function (layer, shadowBits, dx, dy) {
     if (shadowBits & 0x0f) {
-        var w1 = this._tileWidth / 2;
-        var h1 = this._tileHeight / 2;
-        for (var i = 0; i < 4; i++) {
+        const w1 = this._tileWidth / 2;
+        const h1 = this._tileHeight / 2;
+        for (let i = 0; i < 4; i++) {
             if (shadowBits & (1 << i)) {
-                var dx1 = dx + (i % 2) * w1;
-                var dy1 = dy + Math.floor(i / 2) * h1;
-                layer.addRect(0, 0, 0, dx1, dy1, w1, h1);
+                const dx1 = dx + (i % 2) * w1;
+                const dy1 = dy + Math.floor(i / 2) * h1;
+                layer.addRect(-1, 0, 0, dx1, dy1, w1, h1);
             }
         }
     }
