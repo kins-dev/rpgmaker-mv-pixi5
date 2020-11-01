@@ -5483,15 +5483,9 @@ function ShaderTilemap() {
 ShaderTilemap.prototype = Object.create(Tilemap.prototype);
 ShaderTilemap.prototype.constructor = ShaderTilemap;
 
-// FIXME: Issue
-// Sometimes the upper layer will appear partly transparent so moving
-// it to zIndex 6 fixed it, but I'm not sure why.
-// Only happens on tileId3 with a tint to make things darker,
-// and then only in specific cases.
-//
+
 // Note: May cause issues with plugins if they are overriding some of the
 // ShaderTilemap APIs
-
 // we need this constant for some platforms (Samsung S4, S5, Tab4, HTC One H8)
 /* Disabled for PixiJS5 on Desktop: needs mobile testings
 PIXI.glCore.VertexArrayObject.FORCE_NATIVE = true;
@@ -5572,8 +5566,8 @@ ShaderTilemap.prototype.updateTransform = function () {
         ox = Math.floor(this.origin.x);
         oy = Math.floor(this.origin.y);
     }
-    let startX = Math.floor((ox - this._margin) / this._tileWidth);
-    let startY = Math.floor((oy - this._margin) / this._tileHeight);
+    const startX = Math.floor((ox - this._margin) / this._tileWidth);
+    const startY = Math.floor((oy - this._margin) / this._tileHeight);
     this._updateLayerPositions(startX, startY);
     if (this._needsRepaint ||
         this._lastStartX !== startX || this._lastStartY !== startY) {
@@ -5604,17 +5598,14 @@ ShaderTilemap.prototype._createLayers = function () {
         //@hackerham: create layers only in initialization. Doesn't depend on width/height
         this.addChild(this.lowerZLayer = new PIXI.tilemap.ZLayer(this, 0));
 
-        const parameters = PluginManager.parameters('ShaderTilemap');
-        const useSquareShader = Number(parameters.hasOwnProperty('squareShader') ? parameters['squareShader'] : 0);
-
-        this.lowerZLayer.addChild(this.lowerLayer = new PIXI.tilemap.CompositeRectTileLayer(0, [], useSquareShader));
+        this.lowerZLayer.addChild(this.lowerLayer = new PIXI.tilemap.CompositeRectTileLayer(0, []));
         this.lowerLayer.shadowColor = new Float32Array([0.0, 0.0, 0.0, 0.5]);
 
         // FIXME: This was 4 before, but some of the upper tiles were getting overwritten
         // by lower tiles, setting to 6 fixed this behavior, but it is unclear why
         // or what issues changing this might cause
-        this.addChild(this.upperZLayer = new PIXI.tilemap.ZLayer(this, 6));
-        this.upperZLayer.addChild(this.upperLayer = new PIXI.tilemap.CompositeRectTileLayer(0, [], useSquareShader));
+        this.addChild(this.upperZLayer = new PIXI.tilemap.ZLayer(this, 4));
+        this.upperZLayer.addChild(this.upperLayer = new PIXI.tilemap.CompositeRectTileLayer(0, []));
 
     }
 };
@@ -5692,7 +5683,7 @@ ShaderTilemap.prototype._paintTiles = function (startX, startY, x, y) {
         lowerTiles.push(tileId1);
     }
 
-    lowerTiles.push(-shadowBits);
+    lowerTiles.push(-1 * shadowBits);
 
     if (this._isTableTile(upperTileId1) && !this._isTableTile(tileId1)) {
         if (!Tilemap.isShadowingTile(tileId0)) {
@@ -5880,6 +5871,25 @@ ShaderTilemap.prototype._drawTableEdge = function (layer, tileId, dx, dy) {
             layer.addRect(setNumber, sx1, sy1, dx1, dy1, w1, h1 / 2);
         }
     }
+};
+
+
+/**
+ * @method _sortChildren
+ * @private
+ */
+ShaderTilemap.prototype._sortChildren = function () {
+    this.children.sort(this._compareChildOrder.bind(this));
+};
+
+/**
+ * @method _compareChildOrder
+ * @param {Object} a
+ * @param {Object} b
+ * @private
+ */
+ShaderTilemap.prototype._compareChildOrder = function (a, b) {
+    return a.z - b.z;
 };
 
 /**
