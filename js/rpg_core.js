@@ -5601,9 +5601,6 @@ ShaderTilemap.prototype._createLayers = function () {
         this.lowerZLayer.addChild(this.lowerLayer = new PIXI.tilemap.CompositeRectTileLayer(0, []));
         this.lowerLayer.shadowColor = new Float32Array([0.0, 0.0, 0.0, 0.5]);
 
-        // FIXME: This was 4 before, but some of the upper tiles were getting overwritten
-        // by lower tiles, setting to 6 fixed this behavior, but it is unclear why
-        // or what issues changing this might cause
         this.addChild(this.upperZLayer = new PIXI.tilemap.ZLayer(this, 4));
         this.upperZLayer.addChild(this.upperLayer = new PIXI.tilemap.CompositeRectTileLayer(0, []));
 
