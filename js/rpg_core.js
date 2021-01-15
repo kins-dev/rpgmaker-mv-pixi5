@@ -9215,15 +9215,28 @@ Decrypter.createBlobUrl = function (arrayBuffer) {
 };
 
 Decrypter.extToEncryptExt = function (url) {
-    const path = require('path').posix;
-    const ext = path.extname(url);
-    var newExt = ext;
+    let ext;
+    try {
+        const path = require('path').posix;
+        ext = path.extname(url);
+        let newExt = ext;
+    
+        if (ext === ".ogg" && Decrypter.hasEncryptedAudio) newExt = ".rpgmvo";
+        else if (ext === ".m4a" && Decrypter.hasEncryptedImages) newExt = ".rpgmvm";
+        else if (ext === ".png" && Decrypter.hasEncryptedImages) newExt = ".rpgmvp";
+    
+        return CS_URL.MapURL(path.join(path.dirname(url), path.basename(url, ext) + newExt));
+    } catch(ex) {
+        ext = url.split('.').pop();
+        let encryptedExt = ext;
 
-    if (ext === ".ogg" && Decrypter.hasEncryptedAudio) newExt = ".rpgmvo";
-    else if (ext === ".m4a" && Decrypter.hasEncryptedImages) newExt = ".rpgmvm";
-    else if (ext === ".png" && Decrypter.hasEncryptedImages) newExt = ".rpgmvp";
+        if (ext === "ogg") encryptedExt = ".rpgmvo";
+        else if (ext === "m4a") encryptedExt = ".rpgmvm";
+        else if (ext === "png") encryptedExt = ".rpgmvp";
+        else encryptedExt = ext;
 
-    return CS_URL.MapURL(path.join(path.dirname(url), path.basename(url, ext) + newExt));
+        return url.slice(0, url.lastIndexOf(ext) - 1) + encryptedExt;
+    }
 };
 
 Decrypter.readEncryptionkey = function () {
@@ -9304,16 +9317,23 @@ CS_URL.absolutePrefix = "";
  * @method Initialize
  */
 CS_URL.Initialize = function () {
-    // List case sensitive platforms here
-    if (nw.process.platform !== "linux" &&
-        nw.process.platform !== "android") {
+    try {
+        // List case sensitive platforms here
+        if (nw.process.platform !== "linux" &&
+            nw.process.platform !== "android") {
+            CS_URL.MapURL = function (url) {
+                return url;
+            };
+        }
+        else {
+            CS_URL.absolutePrefix = require('path').posix.dirname(window.location.pathname);
+            CS_URL.InitializeMap(nw.__dirname, "/");
+        }
+    }catch(ex)
+    {
         CS_URL.MapURL = function (url) {
             return url;
         };
-    }
-    else {
-        CS_URL.absolutePrefix = require('path').posix.dirname(window.location.pathname);
-        CS_URL.InitializeMap(nw.__dirname, "/");
     }
 };
 

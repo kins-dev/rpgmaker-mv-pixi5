@@ -1,6 +1,6 @@
 /*!
- * pixi.js - v5.3.3
- * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+ * pixi.js - v5.3.7
+ * Compiled Fri, 15 Jan 2021 14:23:58 UTC
  *
  * pixi.js is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -471,8 +471,8 @@ var PIXI = (function (exports) {
 	};
 
 	/*!
-	 * @pixi/polyfill - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/polyfill - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/polyfill is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -707,8 +707,8 @@ var PIXI = (function (exports) {
 	}
 
 	/*!
-	 * @pixi/settings - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/settings - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/settings is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -3458,8 +3458,8 @@ var PIXI = (function (exports) {
 	};
 
 	/*!
-	 * @pixi/constants - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/constants - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/constants is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -3898,8 +3898,8 @@ var PIXI = (function (exports) {
 	})(exports.MSAA_QUALITY || (exports.MSAA_QUALITY = {}));
 
 	/*!
-	 * @pixi/utils - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/utils - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/utils is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -3930,7 +3930,7 @@ var PIXI = (function (exports) {
 	settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
 
 	var saidHello = false;
-	var VERSION = '5.3.3';
+	var VERSION = '5.3.7';
 	/**
 	 * Skips the hello message of renderers that are created after this is run.
 	 *
@@ -4799,8 +4799,8 @@ var PIXI = (function (exports) {
 	});
 
 	/*!
-	 * @pixi/math - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/math - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/math is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -6708,8 +6708,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/display - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/display - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/display is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -8375,8 +8375,8 @@ var PIXI = (function (exports) {
 	Container.prototype.containerUpdateTransform = Container.prototype.updateTransform;
 
 	/*!
-	 * @pixi/accessibility - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/accessibility - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/accessibility is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -8959,8 +8959,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/ticker - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/ticker - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/ticker is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -9802,8 +9802,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/interaction - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/interaction - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/interaction is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -11998,8 +11998,8 @@ var PIXI = (function (exports) {
 	}(eventemitter3));
 
 	/*!
-	 * @pixi/runner - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/runner - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/runner is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -12194,8 +12194,8 @@ var PIXI = (function (exports) {
 	});
 
 	/*!
-	 * @pixi/core - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/core - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/core is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -14114,7 +14114,7 @@ var PIXI = (function (exports) {
 	        // url file extension is SVG
 	        return extension === 'svg'
 	            // source is SVG data-uri
-	            || (typeof source === 'string' && source.indexOf('data:image/svg+xml;base64') === 0)
+	            || (typeof source === 'string' && (/^data:image\/svg\+xml(;(charset=utf8|utf8))?;base64/).test(source))
 	            // source is SVG inline
 	            || (typeof source === 'string' && source.indexOf('<svg') === 0);
 	    };
@@ -16672,7 +16672,7 @@ var PIXI = (function (exports) {
 	                // new behavior: sum the padding
 	                : padding + filter.padding;
 	            // only auto fit if all filters are autofit
-	            autoFit = autoFit || filter.autoFit;
+	            autoFit = autoFit && filter.autoFit;
 	            legacy = legacy || filter.legacy;
 	        }
 	        if (filterStack.length === 1) {
@@ -17279,14 +17279,17 @@ var PIXI = (function (exports) {
 	     */
 	    ContextSystem.prototype.validateContext = function (gl) {
 	        var attributes = gl.getContextAttributes();
+	        var isWebGl2 = 'WebGL2RenderingContext' in window && gl instanceof window.WebGL2RenderingContext;
+	        if (isWebGl2) {
+	            this.webGLVersion = 2;
+	        }
 	        // this is going to be fairly simple for now.. but at least we have room to grow!
 	        if (!attributes.stencil) {
 	            /* eslint-disable max-len, no-console */
 	            console.warn('Provided WebGL context does not have a stencil buffer, masks may not render correctly');
 	            /* eslint-enable max-len, no-console */
 	        }
-	        var hasuint32 = ('WebGL2RenderingContext' in window && gl instanceof window.WebGL2RenderingContext)
-	            || !!gl.getExtension('OES_element_index_uint');
+	        var hasuint32 = isWebGl2 || !!gl.getExtension('OES_element_index_uint');
 	        this.supports.uint32Indices = hasuint32;
 	        if (!hasuint32) {
 	            /* eslint-disable max-len, no-console */
@@ -17834,7 +17837,7 @@ var PIXI = (function (exports) {
 	        var context = this.renderer.context;
 	        this.CONTEXT_UID = this.renderer.CONTEXT_UID;
 	        // webgl2
-	        if (!gl.createVertexArray) {
+	        if (context.webGLVersion !== 2) {
 	            // webgl 1!
 	            var nativeVaoExtension_1 = this.renderer.context.extensions.vertexArrayObject;
 	            if (settings.PREFER_ENV === exports.ENV.WEBGL_LEGACY) {
@@ -17864,7 +17867,7 @@ var PIXI = (function (exports) {
 	                };
 	            }
 	        }
-	        if (!gl.vertexAttribDivisor) {
+	        if (context.webGLVersion !== 2) {
 	            var instanceExt_1 = gl.getExtension('ANGLE_instanced_arrays');
 	            if (instanceExt_1) {
 	                gl.vertexAttribDivisor = function (a, b) {
@@ -17897,12 +17900,14 @@ var PIXI = (function (exports) {
 	        // Still mulling over the best way to solve this one..
 	        // will likely need to modify the shader attribute locations at run time!
 	        var vaos = geometry.glVertexArrayObjects[this.CONTEXT_UID];
+	        var incRefCount = false;
 	        if (!vaos) {
 	            this.managedGeometries[geometry.id] = geometry;
 	            geometry.disposeRunner.add(this);
 	            geometry.glVertexArrayObjects[this.CONTEXT_UID] = vaos = {};
+	            incRefCount = true;
 	        }
-	        var vao = vaos[shader.program.id] || this.initGeometryVao(geometry, shader.program);
+	        var vao = vaos[shader.program.id] || this.initGeometryVao(geometry, shader.program, incRefCount);
 	        this._activeGeometry = geometry;
 	        if (this._activeVao !== vao) {
 	            this._activeVao = vao;
@@ -18000,8 +18005,10 @@ var PIXI = (function (exports) {
 	     * @protected
 	     * @param {PIXI.Geometry} geometry - Instance of geometry to to generate Vao for
 	     * @param {PIXI.Program} program - Instance of program
+	     * @param {boolean} [incRefCount=false] - Increment refCount of all geometry buffers
 	     */
-	    GeometrySystem.prototype.initGeometryVao = function (geometry, program) {
+	    GeometrySystem.prototype.initGeometryVao = function (geometry, program, incRefCount) {
+	        if (incRefCount === void 0) { incRefCount = true; }
 	        this.checkCompatibility(geometry, program);
 	        var gl = this.gl;
 	        var CONTEXT_UID = this.CONTEXT_UID;
@@ -18057,7 +18064,9 @@ var PIXI = (function (exports) {
 	                this.managedBuffers[buffer.id] = buffer;
 	                buffer.disposeRunner.add(this);
 	            }
-	            buffer._glBuffers[CONTEXT_UID].refCount++;
+	            if (incRefCount) {
+	                buffer._glBuffers[CONTEXT_UID].refCount++;
+	            }
 	        }
 	        // TODO - maybe make this a data object?
 	        // lets wait to see if we need to first!
@@ -21290,7 +21299,7 @@ var PIXI = (function (exports) {
 	                    gl.activeTexture(gl.TEXTURE0 + i);
 	                    this.currentLocation = i;
 	                }
-	                gl.bindTexture(gl.TEXTURE_2D, this.emptyTextures[texture.target].texture);
+	                gl.bindTexture(texture.target, this.emptyTextures[texture.target].texture);
 	                boundTextures[i] = null;
 	            }
 	        }
@@ -23149,8 +23158,8 @@ var PIXI = (function (exports) {
 	var BatchRenderer = BatchPluginFactory.create();
 
 	/*!
-	 * @pixi/app - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/app - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/app is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -23420,8 +23429,8 @@ var PIXI = (function (exports) {
 	Application.registerPlugin(ResizePlugin);
 
 	/*!
-	 * @pixi/extract - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/extract - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/extract is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -26194,8 +26203,8 @@ var PIXI = (function (exports) {
 	};
 
 	/*!
-	 * @pixi/loaders - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/loaders - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/loaders is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -26511,8 +26520,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/particles - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/particles - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/particles is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -27314,8 +27323,8 @@ var PIXI = (function (exports) {
 	}(ObjectRenderer));
 
 	/*!
-	 * @pixi/graphics - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/graphics - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/graphics is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -28008,40 +28017,75 @@ var PIXI = (function (exports) {
 	        /* Outer miter point */
 	        var omx = x1 - ((px - x1) * outerWeight);
 	        var omy = y1 - ((py - y1) * outerWeight);
-	        if (style.join === exports.LINE_JOIN.BEVEL || pdist / widthSquared > miterLimitSquared) {
-	            if (clockwise) /* rotating at inner angle */ {
-	                verts.push(imx, imy); // inner miter point
-	                verts.push(x1 + (perpx * outerWeight), y1 + (perpy * outerWeight)); // first segment's outer vertex
-	                verts.push(imx, imy); // inner miter point
-	                verts.push(x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight)); // second segment's outer vertex
+	        /* Is the inside miter point too far away, creating a spike? */
+	        var smallerInsideSegmentSq = Math.min((dx0 * dx0) + (dy0 * dy0), (dx1 * dx1) + (dy1 * dy1));
+	        var insideWeight = clockwise ? innerWeight : outerWeight;
+	        var smallerInsideDiagonalSq = smallerInsideSegmentSq + (insideWeight * insideWeight * widthSquared);
+	        var insideMiterOk = pdist <= smallerInsideDiagonalSq;
+	        if (insideMiterOk) {
+	            if (style.join === exports.LINE_JOIN.BEVEL || pdist / widthSquared > miterLimitSquared) {
+	                if (clockwise) /* rotating at inner angle */ {
+	                    verts.push(imx, imy); // inner miter point
+	                    verts.push(x1 + (perpx * outerWeight), y1 + (perpy * outerWeight)); // first segment's outer vertex
+	                    verts.push(imx, imy); // inner miter point
+	                    verts.push(x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight)); // second segment's outer vertex
+	                }
+	                else /* rotating at outer angle */ {
+	                    verts.push(x1 - (perpx * innerWeight), y1 - (perpy * innerWeight)); // first segment's inner vertex
+	                    verts.push(omx, omy); // outer miter point
+	                    verts.push(x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight)); // second segment's outer vertex
+	                    verts.push(omx, omy); // outer miter point
+	                }
+	                indexCount += 2;
 	            }
-	            else /* rotating at outer angle */ {
-	                verts.push(x1 - (perpx * innerWeight), y1 - (perpy * innerWeight)); // first segment's inner vertex
-	                verts.push(omx, omy); // outer miter point
-	                verts.push(x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight)); // second segment's outer vertex
-	                verts.push(omx, omy); // outer miter point
+	            else if (style.join === exports.LINE_JOIN.ROUND) {
+	                if (clockwise) /* arc is outside */ {
+	                    verts.push(imx, imy);
+	                    verts.push(x1 + (perpx * outerWeight), y1 + (perpy * outerWeight));
+	                    indexCount += round(x1, y1, x1 + (perpx * outerWeight), y1 + (perpy * outerWeight), x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight), verts, true) + 4;
+	                    verts.push(imx, imy);
+	                    verts.push(x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight));
+	                }
+	                else /* arc is inside */ {
+	                    verts.push(x1 - (perpx * innerWeight), y1 - (perpy * innerWeight));
+	                    verts.push(omx, omy);
+	                    indexCount += round(x1, y1, x1 - (perpx * innerWeight), y1 - (perpy * innerWeight), x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight), verts, false) + 4;
+	                    verts.push(x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight));
+	                    verts.push(omx, omy);
+	                }
 	            }
+	            else {
+	                verts.push(imx, imy);
+	                verts.push(omx, omy);
+	            }
+	        }
+	        else // inside miter is NOT ok
+	         {
+	            verts.push(x1 - (perpx * innerWeight), y1 - (perpy * innerWeight)); // first segment's inner vertex
+	            verts.push(x1 + (perpx * outerWeight), y1 + (perpy * outerWeight)); // first segment's outer vertex
+	            if (style.join === exports.LINE_JOIN.BEVEL || pdist / widthSquared > miterLimitSquared) { ; }
+	            else if (style.join === exports.LINE_JOIN.ROUND) {
+	                if (clockwise) /* arc is outside */ {
+	                    indexCount += round(x1, y1, x1 + (perpx * outerWeight), y1 + (perpy * outerWeight), x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight), verts, true) + 2;
+	                }
+	                else /* arc is inside */ {
+	                    indexCount += round(x1, y1, x1 - (perpx * innerWeight), y1 - (perpy * innerWeight), x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight), verts, false) + 2;
+	                }
+	            }
+	            else {
+	                if (clockwise) {
+	                    verts.push(omx, omy); // inner miter point
+	                    verts.push(omx, omy); // inner miter point
+	                }
+	                else {
+	                    verts.push(imx, imy); // outer miter point
+	                    verts.push(imx, imy); // outer miter point
+	                }
+	                indexCount += 2;
+	            }
+	            verts.push(x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight)); // second segment's inner vertex
+	            verts.push(x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight)); // second segment's outer vertex
 	            indexCount += 2;
-	        }
-	        else if (style.join === exports.LINE_JOIN.ROUND) {
-	            if (clockwise) /* arc is outside */ {
-	                verts.push(imx, imy);
-	                verts.push(x1 + (perpx * outerWeight), y1 + (perpy * outerWeight));
-	                indexCount += round(x1, y1, x1 + (perpx * outerWeight), y1 + (perpy * outerWeight), x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight), verts, true) + 4;
-	                verts.push(imx, imy);
-	                verts.push(x1 + (perp1x * outerWeight), y1 + (perp1y * outerWeight));
-	            }
-	            else /* arc is inside */ {
-	                verts.push(x1 - (perpx * innerWeight), y1 - (perpy * innerWeight));
-	                verts.push(omx, omy);
-	                indexCount += round(x1, y1, x1 - (perpx * innerWeight), y1 - (perpy * innerWeight), x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight), verts, false) + 4;
-	                verts.push(x1 - (perp1x * innerWeight), y1 - (perp1y * innerWeight));
-	                verts.push(omx, omy);
-	            }
-	        }
-	        else {
-	            verts.push(imx, imy);
-	            verts.push(omx, omy);
 	        }
 	    }
 	    x0 = points[(length - 2) * 2];
@@ -30224,10 +30268,10 @@ var PIXI = (function (exports) {
 	    Graphics.prototype._render = function (renderer) {
 	        this.finishPoly();
 	        var geometry = this._geometry;
-	        var hasuit32 = renderer.context.supports.uint32Indices;
+	        var hasuint32 = renderer.context.supports.uint32Indices;
 	        // batch part..
 	        // batch it!
-	        geometry.updateBatches(hasuit32);
+	        geometry.updateBatches(hasuint32);
 	        if (geometry.batchable) {
 	            if (this.batchDirty !== geometry.batchDirty) {
 	                this._populateBatches();
@@ -30354,8 +30398,9 @@ var PIXI = (function (exports) {
 	            // and that only gets created if we actually need it..
 	            // but may be more than one plugins for graphics
 	            if (!DEFAULT_SHADERS[pluginName]) {
-	                var sampleValues = new Int32Array(16);
-	                for (var i = 0; i < 16; i++) {
+	                var MAX_TEXTURES = renderer.plugins.batch.MAX_TEXTURES;
+	                var sampleValues = new Int32Array(MAX_TEXTURES);
+	                for (var i = 0; i < MAX_TEXTURES; i++) {
 	                    sampleValues[i] = i;
 	                }
 	                var uniforms = {
@@ -30503,7 +30548,6 @@ var PIXI = (function (exports) {
 	     *  Should it destroy the base texture of the child sprite
 	     */
 	    Graphics.prototype.destroy = function (options) {
-	        _super.prototype.destroy.call(this, options);
 	        this._geometry.refCount--;
 	        if (this._geometry.refCount === 0) {
 	            this._geometry.dispose();
@@ -30533,8 +30577,8 @@ var PIXI = (function (exports) {
 	}(Container));
 
 	/*!
-	 * @pixi/sprite - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/sprite - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/sprite is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -31114,8 +31158,8 @@ var PIXI = (function (exports) {
 	}(Container));
 
 	/*!
-	 * @pixi/text - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/text - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/text is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -32073,7 +32117,7 @@ var PIXI = (function (exports) {
 	        var width = 0;
 	        var line = '';
 	        var lines = '';
-	        var cache = {};
+	        var cache = Object.create(null);
 	        var letterSpacing = style.letterSpacing, whiteSpace = style.whiteSpace;
 	        // How to handle whitespaces
 	        var collapseSpaces = TextMetrics.collapseSpaces(whiteSpace);
@@ -32229,7 +32273,7 @@ var PIXI = (function (exports) {
 	     */
 	    TextMetrics.getFromCache = function (key, letterSpacing, cache, context) {
 	        var width = cache[key];
-	        if (width === undefined) {
+	        if (typeof width !== 'number') {
 	            var spacing = ((key.length) * letterSpacing);
 	            width = context.measureText(key).width + spacing;
 	            cache[key] = width;
@@ -32763,8 +32807,9 @@ var PIXI = (function (exports) {
 	        // beneath the text, whilst also having the proper text shadow styling.
 	        for (var i = 0; i < passesCount; ++i) {
 	            var isShadowPass = style.dropShadow && i === 0;
-	            var dsOffsetText = isShadowPass ? height * 2 : 0; // we only want the drop shadow, so put text way off-screen
-	            var dsOffsetShadow = dsOffsetText * this.resolution;
+	            // we only want the drop shadow, so put text way off-screen
+	            var dsOffsetText = isShadowPass ? Math.ceil(Math.max(1, height) + (style.padding * 2)) : 0;
+	            var dsOffsetShadow = dsOffsetText * this._resolution;
 	            if (isShadowPass) {
 	                // On Safari, text with gradient and drop shadows together do not position correctly
 	                // if the scale of the canvas is not 1: https://bugs.webkit.org/show_bug.cgi?id=197689
@@ -32785,7 +32830,7 @@ var PIXI = (function (exports) {
 	                //       the setter converts to string. See this thread for more details:
 	                //       https://github.com/microsoft/TypeScript/issues/2521
 	                context.strokeStyle = style.stroke;
-	                context.shadowColor = '0';
+	                context.shadowColor = 'black';
 	                context.shadowBlur = 0;
 	                context.shadowOffsetX = 0;
 	                context.shadowOffsetY = 0;
@@ -33160,8 +33205,8 @@ var PIXI = (function (exports) {
 	}(Sprite));
 
 	/*!
-	 * @pixi/prepare - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/prepare - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/prepare is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -33786,8 +33831,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/spritesheet - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/spritesheet - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/spritesheet is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -34117,8 +34162,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/sprite-tiling - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/sprite-tiling - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/sprite-tiling is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -34197,7 +34242,7 @@ var PIXI = (function (exports) {
 	         *
 	         * @member {PIXI.TextureMatrix}
 	         */
-	        _this.uvMatrix = texture.uvMatrix || new TextureMatrix(texture);
+	        _this.uvMatrix = _this.texture.uvMatrix || new TextureMatrix(texture);
 	        /**
 	         * Plugin that is responsible for rendering this element.
 	         * Allows to customize the rendering process without overriding '_render' method.
@@ -34413,7 +34458,7 @@ var PIXI = (function (exports) {
 
 	var vertex$2 = "attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 translationMatrix;\nuniform mat3 uTransform;\n\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * translationMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = (uTransform * vec3(aTextureCoord, 1.0)).xy;\n}\n";
 
-	var fragment$2 = "varying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform vec4 uColor;\nuniform mat3 uMapCoord;\nuniform vec4 uClampFrame;\nuniform vec2 uClampOffset;\n\nvoid main(void)\n{\n    vec2 coord = vTextureCoord - floor(vTextureCoord - uClampOffset);\n    coord = (uMapCoord * vec3(coord, 1.0)).xy;\n    coord = clamp(coord, uClampFrame.xy, uClampFrame.zw);\n\n    vec4 texSample = texture2D(uSampler, coord);\n    gl_FragColor = texSample * uColor;\n}\n";
+	var fragment$2 = "varying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform vec4 uColor;\nuniform mat3 uMapCoord;\nuniform vec4 uClampFrame;\nuniform vec2 uClampOffset;\n\nvoid main(void)\n{\n    vec2 coord = vTextureCoord + ceil(uClampOffset - vTextureCoord);\n    coord = (uMapCoord * vec3(coord, 1.0)).xy;\n    coord = clamp(coord, uClampFrame.xy, uClampFrame.zw);\n\n    vec4 texSample = texture2D(uSampler, coord);\n    gl_FragColor = texSample * uColor;\n}\n";
 
 	var fragmentSimple = "varying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform vec4 uColor;\n\nvoid main(void)\n{\n    vec4 sample = texture2D(uSampler, vTextureCoord);\n    gl_FragColor = sample * uColor;\n}\n";
 
@@ -34518,8 +34563,8 @@ var PIXI = (function (exports) {
 	}(ObjectRenderer));
 
 	/*!
-	 * @pixi/mesh - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/mesh - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/mesh is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -34707,9 +34752,6 @@ var PIXI = (function (exports) {
 	         */
 	        _this.vertexDirty = 0;
 	        _this._transformID = -1;
-	        // Inherited from DisplayMode, set defaults
-	        _this.tint = 0xFFFFFF;
-	        _this.blendMode = exports.BLEND_MODES.NORMAL;
 	        /**
 	         * Internal roundPixels field
 	         *
@@ -35226,8 +35268,8 @@ var PIXI = (function (exports) {
 	}(Geometry));
 
 	/*!
-	 * @pixi/text-bitmap - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/text-bitmap - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/text-bitmap is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -35375,6 +35417,7 @@ var PIXI = (function (exports) {
 	            char: [],
 	            chars: [],
 	            kerning: [],
+	            kernings: [],
 	        };
 	        for (var i in items) {
 	            // Extract item name
@@ -35511,10 +35554,50 @@ var PIXI = (function (exports) {
 	    return XMLFormat;
 	}());
 
+	/**
+	 * BitmapFont format that's XML-based.
+	 *
+	 * @class
+	 * @private
+	 */
+	var XMLStringFormat = /** @class */ (function () {
+	    function XMLStringFormat() {
+	    }
+	    /**
+	     * Check if resource refers to text xml font data.
+	     *
+	     * @static
+	     * @private
+	     * @param {any} data
+	     * @return {boolean} True if resource could be treated as font data, false otherwise.
+	     */
+	    XMLStringFormat.test = function (data) {
+	        if (typeof data === 'string' && data.indexOf('<font>') > -1) {
+	            var xml = new self.DOMParser().parseFromString(data, 'text/xml');
+	            return XMLFormat.test(xml);
+	        }
+	        return false;
+	    };
+	    /**
+	     * Convert the text XML into BitmapFontData that we can use.
+	     *
+	     * @static
+	     * @private
+	     * @param {string} xmlTxt
+	     * @return {BitmapFontData} Data to use for BitmapFont
+	     */
+	    XMLStringFormat.parse = function (xmlTxt) {
+	        var xml = new window.DOMParser().parseFromString(xmlTxt, 'text/xml');
+	        return XMLFormat.parse(xml);
+	    };
+	    return XMLStringFormat;
+	}());
+
 	// Registered formats, maybe make this extensible in the future?
 	var formats = [
 	    TextFormat,
-	    XMLFormat ];
+	    XMLFormat,
+	    XMLStringFormat ];
 	/**
 	 * Auto-detect BitmapFont parsing format based on data.
 	 * @private
@@ -35679,7 +35762,7 @@ var PIXI = (function (exports) {
 	        context.shadowOffsetY = Math.sin(style.dropShadowAngle) * style.dropShadowDistance;
 	    }
 	    else {
-	        context.shadowColor = '0';
+	        context.shadowColor = 'black';
 	        context.shadowBlur = 0;
 	        context.shadowOffsetX = 0;
 	        context.shadowOffsetY = 0;
@@ -35690,7 +35773,7 @@ var PIXI = (function (exports) {
 	    if (style.fill) {
 	        context.fillText(char, tx, ty + metrics.lineHeight - fontProperties.descent);
 	    }
-	    context.setTransform();
+	    context.setTransform(1, 0, 0, 1, 0, 0); // defaults needed for older browsers (e.g. Opera 29)
 	    context.fillStyle = 'rgba(0, 0, 0, 0)';
 	}
 
@@ -36245,21 +36328,24 @@ var PIXI = (function (exports) {
 	         */
 	        _this._anchor = new ObservablePoint(function () { _this.dirty = true; }, _this, 0, 0);
 	        /**
-	         * If true PixiJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
-	         * Advantages can include sharper image quality (like text) and faster rendering on canvas.
-	         * The main disadvantage is movement of objects may appear less smooth.
-	         * To set the global default, change {@link PIXI.settings.ROUND_PIXELS}
+	         * If true PixiJS will Math.floor() x/y values when rendering
 	         *
 	         * @member {boolean}
 	         * @default PIXI.settings.ROUND_PIXELS
 	         */
-	        _this.roundPixels = settings.ROUND_PIXELS;
+	        _this._roundPixels = settings.ROUND_PIXELS;
 	        /**
 	         * Set to `true` if the BitmapText needs to be redrawn.
 	         *
 	         * @member {boolean}
 	         */
 	        _this.dirty = true;
+	        /**
+	         * Cached char texture is destroyed when BitmapText is destroyed
+	         * @member {Record<number, Texture>}
+	         * @private
+	         */
+	        _this._textureCache = {};
 	        return _this;
 	    }
 	    /**
@@ -36391,7 +36477,9 @@ var PIXI = (function (exports) {
 	                pageMeshData.uvsCount = 0;
 	                pageMeshData.total = 0;
 	                // TODO need to get page texture here somehow..
-	                pageMeshData.mesh.texture = new Texture(texture.baseTexture);
+	                var _textureCache = this._textureCache;
+	                _textureCache[baseTextureUid] = _textureCache[baseTextureUid] || new Texture(texture.baseTexture);
+	                pageMeshData.mesh.texture = _textureCache[baseTextureUid];
 	                pageMeshData.mesh.tint = this._tint;
 	                newPagesMeshData.push(pageMeshData);
 	                pagesMeshData[baseTextureUid] = pageMeshData;
@@ -36424,13 +36512,25 @@ var PIXI = (function (exports) {
 	                pageMeshData.uvs = new Float32Array(4 * 2 * total);
 	                pageMeshData.indices = new Uint16Array(6 * total);
 	            }
+	            else {
+	                var total_1 = pageMeshData.total;
+	                var vertices = pageMeshData.vertices;
+	                // Clear the garbage at the end of the vertices buffer. This will prevent the bounds miscalculation.
+	                for (var i_1 = total_1 * 4 * 2; i_1 < vertices.length; i_1++) {
+	                    vertices[i_1] = 0;
+	                }
+	            }
 	            // as a buffer maybe bigger than the current word, we set the size of the meshMaterial
 	            // to match the number of letters needed
 	            pageMeshData.mesh.size = 6 * total;
 	        }
 	        for (var i = 0; i < lenChars; i++) {
 	            var char = chars[i];
-	            var xPos = (char.position.x + lineAlignOffsets[char.line]) * scale;
+	            var offset = char.position.x + lineAlignOffsets[char.line];
+	            if (this._roundPixels) {
+	                offset = Math.round(offset);
+	            }
+	            var xPos = offset * scale;
 	            var yPos = char.position.y * scale;
 	            var texture = char.texture;
 	            var pageMesh = pagesMeshData[texture.baseTexture.uid];
@@ -36469,7 +36569,7 @@ var PIXI = (function (exports) {
 	                var vertexCount = 0;
 	                var anchorOffsetX = this._textWidth * this.anchor.x;
 	                var anchorOffsetY = this._textHeight * this.anchor.y;
-	                for (var i_1 = 0; i_1 < pageMeshData.total; i_1++) {
+	                for (var i_2 = 0; i_2 < pageMeshData.total; i_2++) {
 	                    pageMeshData.vertices[vertexCount++] -= anchorOffsetX;
 	                    pageMeshData.vertices[vertexCount++] -= anchorOffsetY;
 	                    pageMeshData.vertices[vertexCount++] -= anchorOffsetX;
@@ -36718,6 +36818,28 @@ var PIXI = (function (exports) {
 	        enumerable: false,
 	        configurable: true
 	    });
+	    Object.defineProperty(BitmapText.prototype, "roundPixels", {
+	        /**
+	         * If true PixiJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
+	         * Advantages can include sharper image quality (like text) and faster rendering on canvas.
+	         * The main disadvantage is movement of objects may appear less smooth.
+	         * To set the global default, change {@link PIXI.settings.ROUND_PIXELS}
+	         *
+	         * @member {boolean}
+	         * @default PIXI.settings.ROUND_PIXELS
+	         */
+	        get: function () {
+	            return this._roundPixels;
+	        },
+	        set: function (value) {
+	            if (value !== this._roundPixels) {
+	                this._roundPixels = value;
+	                this.dirty = true;
+	            }
+	        },
+	        enumerable: false,
+	        configurable: true
+	    });
 	    Object.defineProperty(BitmapText.prototype, "textHeight", {
 	        /**
 	         * The height of the overall text, different from fontSize,
@@ -36755,6 +36877,16 @@ var PIXI = (function (exports) {
 	                ? style.font.size
 	                : parseInt(style.font.size, 10);
 	        }
+	    };
+	    BitmapText.prototype.destroy = function (options) {
+	        var _textureCache = this._textureCache;
+	        for (var id in _textureCache) {
+	            var texture = _textureCache[id];
+	            texture.destroy();
+	            delete _textureCache[id];
+	        }
+	        this._textureCache = null;
+	        _super.prototype.destroy.call(this, options);
 	    };
 	    /**
 	     * Register a bitmap font with data and a texture.
@@ -36809,7 +36941,7 @@ var PIXI = (function (exports) {
 	     * @see PIXI.Loader.registerPlugin
 	     */
 	    BitmapFontLoader.add = function () {
-	        LoaderResource.setExtensionXhrType('fnt', LoaderResource.XHR_RESPONSE_TYPE.DOCUMENT);
+	        LoaderResource.setExtensionXhrType('fnt', LoaderResource.XHR_RESPONSE_TYPE.TEXT);
 	    };
 	    /**
 	     * Called after a resource is loaded.
@@ -36922,8 +37054,8 @@ var PIXI = (function (exports) {
 	}());
 
 	/*!
-	 * @pixi/filter-alpha - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-alpha - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-alpha is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -37008,8 +37140,8 @@ var PIXI = (function (exports) {
 	}(Filter));
 
 	/*!
-	 * @pixi/filter-blur - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-blur - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-blur is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -37551,13 +37683,13 @@ var PIXI = (function (exports) {
 	     * @param {boolean} horizontal - Do pass along the x-axis (`true`) or y-axis (`false`).
 	     * @param {number} [strength=8] - The strength of the blur filter.
 	     * @param {number} [quality=4] - The quality of the blur filter.
-	     * @param {number} [resolution=1] - The resolution of the blur filter.
+	     * @param {number} [resolution=PIXI.settings.FILTER_RESOLUTION] - The resolution of the blur filter.
 	     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
 	     */
 	    function BlurFilterPass(horizontal, strength, quality, resolution, kernelSize) {
 	        if (strength === void 0) { strength = 8; }
 	        if (quality === void 0) { quality = 4; }
-	        if (resolution === void 0) { resolution = settings.RESOLUTION; }
+	        if (resolution === void 0) { resolution = settings.FILTER_RESOLUTION; }
 	        if (kernelSize === void 0) { kernelSize = 5; }
 	        var _this = this;
 	        var vertSrc = generateBlurVertSource(kernelSize, horizontal);
@@ -37679,13 +37811,13 @@ var PIXI = (function (exports) {
 	    /**
 	     * @param {number} [strength=8] - The strength of the blur filter.
 	     * @param {number} [quality=4] - The quality of the blur filter.
-	     * @param {number} [resolution=1] - The resolution of the blur filter.
+	     * @param {number} [resolution=PIXI.settings.FILTER_RESOLUTION] - The resolution of the blur filter.
 	     * @param {number} [kernelSize=5] - The kernelSize of the blur filter.Options: 5, 7, 9, 11, 13, 15.
 	     */
 	    function BlurFilter(strength, quality, resolution, kernelSize) {
 	        if (strength === void 0) { strength = 8; }
 	        if (quality === void 0) { quality = 4; }
-	        if (resolution === void 0) { resolution = settings.RESOLUTION; }
+	        if (resolution === void 0) { resolution = settings.FILTER_RESOLUTION; }
 	        if (kernelSize === void 0) { kernelSize = 5; }
 	        var _this = _super.call(this) || this;
 	        _this.blurXFilter = new BlurFilterPass(true, strength, quality, resolution, kernelSize);
@@ -37832,8 +37964,8 @@ var PIXI = (function (exports) {
 	}(Filter));
 
 	/*!
-	 * @pixi/filter-color-matrix - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-color-matrix - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-color-matrix is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -38361,8 +38493,8 @@ var PIXI = (function (exports) {
 	ColorMatrixFilter.prototype.grayscale = ColorMatrixFilter.prototype.greyscale;
 
 	/*!
-	 * @pixi/filter-displacement - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-displacement - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-displacement is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -38492,8 +38624,8 @@ var PIXI = (function (exports) {
 	}(Filter));
 
 	/*!
-	 * @pixi/filter-fxaa - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-fxaa - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-fxaa is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -38553,8 +38685,8 @@ var PIXI = (function (exports) {
 	}(Filter));
 
 	/*!
-	 * @pixi/filter-noise - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/filter-noise - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/filter-noise is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -38654,8 +38786,8 @@ var PIXI = (function (exports) {
 	}(Filter));
 
 	/*!
-	 * @pixi/mixin-cache-as-bitmap - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/mixin-cache-as-bitmap - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/mixin-cache-as-bitmap is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -38970,8 +39102,8 @@ var PIXI = (function (exports) {
 	};
 
 	/*!
-	 * @pixi/mixin-get-child-by-name - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/mixin-get-child-by-name - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/mixin-get-child-by-name is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -39017,8 +39149,8 @@ var PIXI = (function (exports) {
 	};
 
 	/*!
-	 * @pixi/mixin-get-global-position - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/mixin-get-global-position - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/mixin-get-global-position is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -40478,8 +40610,8 @@ var PIXI = (function (exports) {
 	}
 
 	/*!
-	 * @pixi/mesh-extras - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/mesh-extras - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/mesh-extras is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -40873,6 +41005,10 @@ var PIXI = (function (exports) {
 	        }
 	        _super.prototype._render.call(this, renderer);
 	    };
+	    SimplePlane.prototype.destroy = function (options) {
+	        this.shader.texture.off('update', this.textureUpdated, this);
+	        _super.prototype.destroy.call(this, options);
+	    };
 	    return SimplePlane;
 	}(Mesh));
 
@@ -41198,8 +41334,8 @@ var PIXI = (function (exports) {
 	}(SimplePlane));
 
 	/*!
-	 * @pixi/sprite-animated - v5.3.3
-	 * Compiled Mon, 02 Nov 2020 15:02:19 UTC
+	 * @pixi/sprite-animated - v5.3.7
+	 * Compiled Fri, 15 Jan 2021 14:23:58 UTC
 	 *
 	 * @pixi/sprite-animated is licensed under the MIT License.
 	 * http://www.opensource.org/licenses/mit-license
@@ -41570,7 +41706,7 @@ var PIXI = (function (exports) {
 	        /**
 	         * The array of textures used for this AnimatedSprite.
 	         *
-	         * @member {PIXI.Texture[]}
+	         * @member {PIXI.Texture[]|PIXI.AnimatedSprite.FrameObject[]}
 	         */
 	        get: function () {
 	            return this._textures;
@@ -41674,7 +41810,7 @@ var PIXI = (function (exports) {
 	 * @name VERSION
 	 * @type {string}
 	 */
-	var VERSION$1 = '5.3.3';
+	var VERSION$1 = '5.3.7';
 	/**
 	 * @namespace PIXI
 	 */
