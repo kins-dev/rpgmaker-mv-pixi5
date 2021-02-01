@@ -1911,6 +1911,7 @@ SceneManager.update = function () {
         this.updateManagers();
         this.updateMain();
         this.tickEnd();
+        Graphics.callGC();
     } catch (e) {
         this.catchException(e);
     }
