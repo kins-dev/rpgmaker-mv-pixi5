@@ -1,5 +1,5 @@
 //=============================================================================
-// rpg_managers.js v1.6.2.1
+// rpg_managers.js v1.6.2.2
 //=============================================================================
 /*jshint esversion: 6 */
 
@@ -1875,15 +1875,20 @@ SceneManager.initInput = function () {
 };
 
 SceneManager.initNwjs = function () {
-    if (Utils.isNwjs()) {
-        var gui = require('nw.gui');
-        var win = gui.Window.get();
-        if (process.platform === 'darwin' && !win.menu) {
-            var menubar = new gui.Menu({ type: 'menubar' });
-            var option = { hideEdit: true, hideWindow: true };
-            menubar.createMacBuiltin('Game', option);
-            win.menu = menubar;
+    try {
+        if (Utils.isNwjs()) {
+            var gui = require('nw.gui');
+            var win = gui.Window.get();
+            if (process.platform === 'darwin' && !win.menu) {
+                var menubar = new gui.Menu({ type: 'menubar' });
+                var option = { hideEdit: true, hideWindow: true };
+                menubar.createMacBuiltin('Game', option);
+                win.menu = menubar;
+            }
         }
+    } catch (ex)
+    {
+        Utils.isNwjs = function () { return false; };
     }
 };
 
@@ -1911,7 +1916,6 @@ SceneManager.update = function () {
         this.updateManagers();
         this.updateMain();
         this.tickEnd();
-        Graphics.callGC();
     } catch (e) {
         this.catchException(e);
     }
@@ -1940,11 +1944,11 @@ SceneManager.onKeyDown = function (event) {
                     location.reload();
                 }
                 break;
-            case 119:   // F8
+            /*case 119:   // F8
                 if (Utils.isNwjs() && Utils.isOptionValid('test')) {
                     require('nw.gui').Window.get().showDevTools();
                 }
-                break;
+                break;*/
         }
     }
 };

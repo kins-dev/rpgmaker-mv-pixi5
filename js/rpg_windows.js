@@ -1,5 +1,5 @@
 //=============================================================================
-// rpg_windows.js v1.6.2.1
+// rpg_windows.js v1.6.2.2
 //=============================================================================
 /*jshint esversion: 6 */
 
@@ -3127,6 +3127,8 @@ Window_ShopNumber.prototype.updateButtonsVisibility = function () {
     }
 };
 
+Window_ShopNumber.prototype.updateButtonsVisiblity = Window_ShopNumber.prototype.updateButtonsVisibility;
+
 Window_ShopNumber.prototype.showButtons = function () {
     for (var i = 0; i < this._buttons.length; i++) {
         this._buttons[i].visible = true;
@@ -4062,6 +4064,8 @@ Window_NumberInput.prototype.updateButtonsVisibility = function () {
         this.hideButtons();
     }
 };
+
+Window_NumberInput.prototype.updateButtonsVisiblity = Window_NumberInput.prototype.updateButtonsVisibility;
 
 Window_NumberInput.prototype.showButtons = function () {
     for (var i = 0; i < this._buttons.length; i++) {

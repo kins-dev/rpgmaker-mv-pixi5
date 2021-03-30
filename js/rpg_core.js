@@ -1,5 +1,5 @@
 //=============================================================================
-// rpg_core.js v1.6.2.1
+// rpg_core.js v1.6.2.2
 //=============================================================================
 
 //-----------------------------------------------------------------------------
@@ -180,7 +180,7 @@ Utils.RPGMAKER_NAME = 'MV';
  * @type String
  * @final
  */
-Utils.RPGMAKER_VERSION = "1.6.2.1";
+Utils.RPGMAKER_VERSION = "1.6.2.2";
 
 /**
  * Checks whether the option is in the query string.
@@ -1768,6 +1768,7 @@ Graphics.initialize = function (width, height, type) {
     this._fpsMeter = null;
     this._modeBox = null;
     this._skipCount = 0;
+    this._gcCount = 0;
     this._maxSkip = 3;
     this._rendered = false;
     this._loadingImage = null;
@@ -1891,6 +1892,7 @@ Graphics.render = function (stage) {
             this._renderer.render(stage);
             // No need to flush here, let PixiJS5 handle it
         }
+        this.callGC();
         var endTime = Date.now();
         var elapsed = endTime - startTime;
         this._skipCount = Math.min(Math.floor(elapsed / 15), this._maxSkip);
@@ -2243,7 +2245,10 @@ Graphics.isInsideCanvas = function (x, y) {
  */
 Graphics.callGC = function () {
     if (Graphics.isWebGL()) {
+        //if(this._gcCount++ > 30){
         Graphics._renderer.textureGC.run();
+        //}
+        //this._gcCount %= 30;
     }
 };
 
@@ -2597,8 +2602,8 @@ Graphics._createRenderer = function () {
     // Map the textures
     PIXI.settings.MIPMAP_TEXTURES = PIXI.MIPMAP_MODES.ON;
     // Cleanup garbage at the correct time rather than automatically
-    PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
-    PIXI.settings.GC_MAX_IDLE = 1;
+    PIXI.settings.GC_MODE = PIXI.GC_MODES.AUTO;
+    // PIXI.settings.GC_MAX_IDLE = 60;
     // Do some things to make is look better, may cause problems
     PIXI.settings.ROUND_PIXELS = true;
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
@@ -4227,7 +4232,11 @@ Sprite.prototype._refresh = function () {
             this.texture.frame = new Rectangle(0, 0, realW, realH);
         } else {
             if (this._bitmap) {
+                let oldTexture = this.texture.baseTexture;
                 this.texture.baseTexture = this._bitmap.baseTexture;
+                if (oldTexture && oldTexture.dispose && oldTexture !== this.texture.baseTexture) {
+                    oldTexture.dispose();
+                }
             }
             this.texture.frame = this._realFrame;
         }
@@ -5884,10 +5893,10 @@ ShaderTilemap.prototype._sortChildren = function () {
  * @param {Object} a
  * @param {Object} b
  * @private
- */
+ *//*
 ShaderTilemap.prototype._compareChildOrder = function (a, b) {
     return a.z - b.z;
-};
+};*/
 
 /**
  * @method _drawShadow
@@ -8147,7 +8156,7 @@ WebAudio.prototype._load = function (url) {
  */
 WebAudio.prototype._onXhrLoad = function (xhr) {
     var array = xhr.response;
-    if (Decrypter.hasEncryptedAudio) array = Decrypter.decryptArrayBuffer(array);
+    if (Decrypter.hasEncryptedAudio) array = Decrypter.decryptArrayBuffer(array, "_onXhrLoad");
     this._readLoopComments(new Uint8Array(array));
     WebAudio._context.decodeAudioData(array, function (buffer) {
         this._buffer = buffer;
@@ -9120,8 +9129,9 @@ Decrypter._requestImgFile = [];
 Decrypter._headerlength = 16;
 Decrypter._xhrOk = 400;
 Decrypter._encryptionKey = "";
+// Must be kept lowercase
 Decrypter._ignoreList = [
-    "img/system/Window.png"
+    "img/system/window.png"
 ];
 Decrypter.SIGNATURE = "5250474d56000000";
 Decrypter.VER = "000301";
@@ -9129,22 +9139,24 @@ Decrypter.REMAIN = "0000000000";
 
 Decrypter.checkImgIgnore = function (url) {
     for (var cnt = 0; cnt < this._ignoreList.length; cnt++) {
-        if (url === this._ignoreList[cnt]) return true;
+        const lc_url = url.toLowerCase();
+        if (lc_url.endsWith(this._ignoreList[cnt])) return true;
     }
     return false;
 };
 
 Decrypter.decryptImg = function (url, bitmap) {
+    let orig_url = url;
     url = this.extToEncryptExt(url);
 
-    var requestFile = new XMLHttpRequest();
+    let requestFile = new XMLHttpRequest();
     requestFile.open("GET", url);
     requestFile.responseType = "arraybuffer";
     requestFile.send();
 
     requestFile.onload = function () {
         if (this.status < Decrypter._xhrOk) {
-            var arrayBuffer = Decrypter.decryptArrayBuffer(requestFile.response);
+            let arrayBuffer = Decrypter.decryptArrayBuffer(requestFile.response, orig_url);
             bitmap._image.src = Decrypter.createBlobUrl(arrayBuffer);
             bitmap._image.addEventListener('load', bitmap._loadListener = Bitmap.prototype._onLoad.bind(bitmap));
             bitmap._image.addEventListener('error', bitmap._errorListener = bitmap._loader || Bitmap.prototype._onError.bind(bitmap));
@@ -9168,7 +9180,7 @@ Decrypter.decryptHTML5Audio = function (url, bgm, pos) {
 
     requestFile.onload = function () {
         if (this.status < Decrypter._xhrOk) {
-            var arrayBuffer = Decrypter.decryptArrayBuffer(requestFile.response);
+            var arrayBuffer = Decrypter.decryptArrayBuffer(requestFile.response, url);
             var url = Decrypter.createBlobUrl(arrayBuffer);
             AudioManager.createDecryptBuffer(url, bgm, pos);
         }
@@ -9179,7 +9191,7 @@ Decrypter.cutArrayHeader = function (arrayBuffer, length) {
     return arrayBuffer.slice(length);
 };
 
-Decrypter.decryptArrayBuffer = function (arrayBuffer) {
+Decrypter.decryptArrayBuffer = function (arrayBuffer, url) {
     if (!arrayBuffer) return null;
     var header = new Uint8Array(arrayBuffer, 0, this._headerlength);
 
@@ -9191,7 +9203,7 @@ Decrypter.decryptArrayBuffer = function (arrayBuffer) {
     }
     for (i = 0; i < this._headerlength; i++) {
         if (header[i] !== refBytes[i]) {
-            throw new Error("Header is wrong");
+            throw new Error("Header is wrong: " + url);
         }
     }
 
@@ -9220,13 +9232,13 @@ Decrypter.extToEncryptExt = function (url) {
         const path = require('path').posix;
         ext = path.extname(url);
         let newExt = ext;
-    
+
         if (ext === ".ogg" && Decrypter.hasEncryptedAudio) newExt = ".rpgmvo";
         else if (ext === ".m4a" && Decrypter.hasEncryptedImages) newExt = ".rpgmvm";
         else if (ext === ".png" && Decrypter.hasEncryptedImages) newExt = ".rpgmvp";
-    
+
         return CS_URL.MapURL(path.join(path.dirname(url), path.basename(url, ext) + newExt));
-    } catch(ex) {
+    } catch (ex) {
         ext = url.split('.').pop();
         let encryptedExt = ext;
 
@@ -9318,22 +9330,24 @@ CS_URL.absolutePrefix = "";
  */
 CS_URL.Initialize = function () {
     try {
-        // List case sensitive platforms here
-        if (nw.process.platform !== "linux" &&
-            nw.process.platform !== "android") {
-            CS_URL.MapURL = function (url) {
-                return url;
-            };
+        let platform;
+        try {
+            CS_URL.absolutePrefix = require('path').posix.dirname(window.location.pathname);
+            platform = nw.process.platform;
+        } catch (ex) {
+            CS_URL.MapURL = function (url) { return url; };
+            Utils.isNwjs = function () { return false; };
+            return;
+        }
+        if (platform !== "linux" && platform !== "android") {
+            CS_URL.MapURL = function (url) { return url; };
         }
         else {
-            CS_URL.absolutePrefix = require('path').posix.dirname(window.location.pathname);
             CS_URL.InitializeMap(nw.__dirname, "/");
         }
-    }catch(ex)
-    {
-        CS_URL.MapURL = function (url) {
-            return url;
-        };
+    } catch (ex) {
+        CS_URL.MapURL = function (url) { return url; };
+        return;
     }
 };
 
@@ -9347,11 +9361,11 @@ CS_URL.Initialize = function () {
 CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
     const fs = require('fs');
     const path = require('path');
-    const items = fs.readdirSync(baseSystemPath, { withFileTypes: true });
+    const items = fs.readdirSync(baseSystemPath, { withFileTypes: true }).reverse();
     for (const entry of items) {
         let isDir = entry.isDirectory();
         if (entry.isSymbolicLink()) {
-            const realItem = fs.readlinkSync(path.join(baseSystemPath, entry.name));
+            const realItem = path.join(baseSystemPath, fs.readlinkSync(path.join(baseSystemPath, entry.name)));
             isDir = fs.statSync(realItem).isDirectory();
         }
         if (isDir) {
@@ -9361,22 +9375,27 @@ CS_URL.InitializeMap = function (baseSystemPath, baseFilePath) {
         } else {
             const fileName = entry.name;
             let ext = path.extname(fileName);
-            const filePath = path.posix.join(baseFilePath, path.basename(fileName, ext));
-            CS_URL.urlMap[filePath + ext] = filePath + ext;
-            CS_URL.urlMap[filePath.toLowerCase() + ext] = filePath + ext;
-            CS_URL.urlMap[path.join(baseSystemPath, path.basename(fileName, ext) + ext)] = filePath + ext;
+            const filePathPosix = path.posix.join(baseFilePath, path.basename(fileName, ext));
+            const filePath = path.join(baseFilePath, path.basename(fileName, ext));
+            CS_URL.urlMap[filePathPosix + ext] = filePathPosix + ext;
+            CS_URL.urlMap[filePathPosix.toLowerCase() + ext] = filePathPosix + ext;
+            CS_URL.urlMap[filePath + ext] = filePathPosix + ext;
             // if we find an encrypted file, add the decrypted name to the list
             // of things to look for
             if (ext === ".rpgmvo") ext = ".ogg";
             else if (ext === ".rpgmvm") ext = ".m4a";
             else if (ext === ".rpgmvp") ext = ".png";
+            else if (ext === ".webp") {
+                CS_URL.urlMap[filePathPosix + ".png"] = filePathPosix + ext;
+                CS_URL.urlMap[filePathPosix.toLowerCase() + ".png"] = filePathPosix + ext;
+                CS_URL.urlMap[filePath + ".png"] = filePathPosix + ext;
+                continue;
+            }
             else { continue; }
-            CS_URL.urlMap[filePath + ext] = filePath + ext;
-            CS_URL.urlMap[filePath.toLowerCase() + ext] = filePath + ext;
-            CS_URL.urlMap[path.join(baseSystemPath, path.basename(fileName, ext) + ext)] = filePath + ext;
+            CS_URL.urlMap[filePathPosix + ext] = filePathPosix + ext;
+            CS_URL.urlMap[filePathPosix.toLowerCase() + ext] = filePathPosix + ext;
+            CS_URL.urlMap[filePath + ext] = filePathPosix + ext;
         }
-    }
-    if (baseFilePath === "") {
     }
 };
 
@@ -9405,6 +9424,7 @@ CS_URL.MapURL = function (url) {
     //console.log("File \"" + item + "\" not found, trying lowercase");
     result = CS_URL.urlMap[item.toLowerCase()];
     if (result) { return result; }
+    if (url !== decodeURIComponent(url)) { return CS_URL.MapURL(decodeURIComponent(url)); }
     //console.log("\"" + item + "\" still not found giving up");
     return url;
 };
